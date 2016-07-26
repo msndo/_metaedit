@@ -7,10 +7,22 @@ Webサイト上、_metaeditを設置したディレクトリ配下のHTMLの&lt;
 ##インストール
 - このリポジトリをCLONEまたはダウンロード
 - _metaedit/ をDOCUMENT_ROOTに配置
-- ブラウザアクセス
+- _metaedit/index.html へブラウザアクセス
 - Webスプレッドシート上に配下HTMLファイルの&lt;title&gt;, &lt;meta name="keywords"&gt;, &lt;meta name="description"&gt;を表示
 - 編集可能
 - 矩形コピー＆ペーストが可能
+
+##動作環境
+PHPが動作するApacheによるWebサイト配下
+
+##対応ブラウザ
+以下のブラウザ上での動作をデスクトップマシンで確認しています。
+スマホ・タブレット上での確認は行っていません。
+
+- Chrome(51.0.2以降)
+- Firefox(47.0.1以降)
+- Edge
+- IE11
 
 ##動かない場合
 - PHP5.2以上が必要
