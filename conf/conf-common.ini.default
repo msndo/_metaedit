@@ -1,0 +1,75 @@
+;========================================================= 表示項目
+[Item-Edit]
+[Item-Edit]
+htmlTitle[regexCondScrape] = '/(.*<title>)(.*?)(<\/title>.*)/si'
+htmlTitle[fieldIndexPickup] = '${2}'
+htmlTitle[columnLabel] = '&lt;title&gt;'
+
+pageTitle[regexCondScrape] = '/(.*<h1\s*?[^\s]*?>)(.*?)(<\/h1>.*)/si'
+pageTitle[fieldIndexPickup] = '${2}'
+pageTitle[columnLabel] = 'Page Title(H1)'
+
+metaDescription[regexCondScrape] ='/(.*<meta\s.*name="description"\s+?content=\")(.*?)(\"\s*?)(|\/)(>.*)/si'
+metaDescription[fieldIndexPickup] = '${2}'
+metaDescription[columnLabel] = 'Meta Description'
+
+metaKeywords[regexCondScrape] = '/(.*<meta\s.*name="keywords"\s+?content=\")(.*?)(\"\s*?)(|\/)(>.*)/si'
+metaKeywords[fieldIndexPickup] = '${2}'
+metaKeywords[columnLabel] = 'Meta Keywords'
+
+;ogImage[regexCondScrape] = '/(.*<meta\s.*property="og:image"\s+?content=\")(.*?)(\"\s*?)(|\/)(>.*)/si'
+;ogImage[fieldIndexPickup] = '${2}'
+;ogImage[columnLabel] = 'OGP Image'
+
+;ogTitle[regexCondScrape] = '/(.*<meta\s.*property="og:title"\s+?content=\")(.*?)(\"\s*?)(|\/)(>.*)/si'
+;ogTitle[fieldIndexPickup] = '${2}'
+;ogTitle[columnLabel] = 'OGP Title'
+
+;ogDescription[regexCondScrape] = '/(.*<meta\s.*property="og:description"\s+?content=\")(.*?)(\"\s*?)(|\/)(>.*)/si'
+;ogDescription[fieldIndexPickup] = '${2}'
+;ogDescription[columnLabel] = 'OGP Description'
+
+;ogUrl[regexCondScrape] = '/(.*<meta\s.*property="og:url"\s+?content=\")(.*?)(\"\s*?)(|\/)(>.*)/si'
+;ogUrl[fieldIndexPickup] = '${2}'
+;ogUrl[columnLabel] = 'OGP URL'
+
+;ogSiteName[regexCondScrape] = '/(.*<meta\s.*property="og:site_name"\s+?content=\")(.*?)(\"\s*?)(|\/)(>.*)/si'
+;ogSiteName[fieldIndexPickup] = '${2}'
+;ogSiteName[columnLabel] = 'OGP Site Name'
+
+;ogType[regexCondScrape] = '/(.*<meta\s.*property="og:type"\s+?content=\")(.*?)(\"\s*?)(|\/)(>.*)/si'
+;ogType[fieldIndexPickup] = '${2}'
+;ogType[columnLabel] = 'OGP Type'
+
+;fbAppId[regexCondScrape] = '/(.*<meta\s.*property="fb:app_id"\s+?content=\")(.*?)(\"\s*?)(|\/)(>.*)/si'
+;fbAppId[fieldIndexPickup] = '${2}'
+;fbAppId[columnLabel] = 'FB App ID'
+
+;========================================================= ディレクトリ設定など
+[Environment]
+;APP_ROOT - When Omitted, Default is getcwd();
+;APP_ROOT = ''
+
+;SITE_ROOT - When Omitted, Default is parent of _metaedit/
+;SITE_ROOT = '/path/to/site'
+
+;SITE_URL - When Omitted, Default is parent URL of _metaedit/
+;SITE_URL = 'http://domain/path/to/site/'
+
+;========================================================= アプリ動作設定
+[Apprication-Control]
+PROHIBIT_HTMLENTITIES = true
+
+listPathIgnore[] = '_metaedit'
+
+listContentAsTargetDoc[] = '/\<\!DOCTYPE/si'
+
+defaultCharset = 'UTF-8'
+metaCharset[regexCondScrape] = '/(.*<meta.*\s.*charset=\")(.*?)(\"\s*?)(|\/)(>.*)/si'
+charsetDetectionOrder = 'utf-8, shift-jis, euc, ascii'
+
+msgRecordNotfound = '（対象ファイルがみつかりませんでした）'
+msgElemNotFound = '(該当項目がありません)'
+
+; true/false
+spreadsheetReadonly = false

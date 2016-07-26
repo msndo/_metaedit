@@ -1,0 +1,156 @@
+<?php
+require_once('common/app/library/conf-common.php');
+require_once('home/app/control-spreadsheet.php');
+
+$confCommon = new ConfCommon;
+?>
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="<?php echo($confCommon -> defaultCharset); ?>">
+<title>META <?php if($confCommon -> spreadsheetReadonly == true) : ?>Viewer<?php else: ?>Editor<?php endif; ?></title>
+<meta name="keywords" content="Development Tool,Page-meta,Scraper">
+<meta name="description" content="Page-meta Scraper">
+
+<!-- ========================================================== CSS common -->
+<?php include(APP_ROOT . '/common/include/load-css-common.html'); ?>
+<!-- ========================================================== /CSS common -->
+
+<!-- ========================================================== CSS category individual -->
+<link rel="stylesheet" type="text/css" media="screen,print" href="home/css/category.css">
+<!-- ========================================================== /CSS category individual -->
+
+<!-- ========================================================== CSS conditional -->
+<?php include(APP_ROOT . '/common/include/load-css-conditional.html'); ?>
+<!-- ========================================================== /CSS conditional -->
+
+<!-- ========================================================== JS common -->
+<?php include(APP_ROOT . '/common/include/load-js-common.html'); ?>
+<!-- ========================================================== /JS common -->
+
+<!-- ========================================================== JS category individual -->
+<script type="text/javascript" src="home/js/category.js"></script>
+<!-- ========================================================== /JS category individual -->
+</head>
+
+<body id="home-index" class="home">
+
+<div id="page-outer">
+<div id="wrapper-outer">
+<div id="bg-wrapper-layer-01">
+<div id="bg-wrapper-layer-02">
+<div id="wrapper" class="clr">
+
+<!-- ======================================================================== header -->
+<?php include(APP_ROOT . '/common/include/header-common.html'); ?>
+<!-- ======================================================================== /header -->
+
+<!-- ======================================================================== contents -->
+<div id="contents">
+<div class="bg-layer01">
+<div class="bg-layer02">
+<div class="contents-container clr">
+
+<?php
+$dataForListFile = new DataForListFile;
+$controlListFile = new ControlListFile;
+
+$paramEnv = $confCommon -> getParamEnv();
+$basePath = str_replace(SITE_URL, '', $paramEnv['basePath']);
+
+// 表示データ本体 + セル設定取得
+$seriesListDocumentInfo = $controlListFile -> getSeries();
+
+// 項目(列)リスト(JS描画用)
+$listColumnBasename = array();
+$listColumnLabel = array();
+$listColumnRenderSetting = array();
+
+$regexCondScrape = $confCommon -> regexCondScrape;
+
+array_push(
+	$listColumnBasename,
+	'path'
+);
+array_push(
+	$listColumnLabel,
+	'Path'
+);
+
+foreach($regexCondScrape as $key => $value) {
+	array_push($listColumnBasename, $key);
+	array_push($listColumnLabel, $value['columnLabel']);
+}
+?>
+
+<script>
+var dataTableListFile =
+<?php echo(json_encode($seriesListDocumentInfo, 256)); ?>;
+</script>
+
+<script>
+(function($) {
+	$.extend({
+		listColumns: [
+			<?php
+				foreach($listColumnBasename as $columnBasename) {
+					if($columnBasename === 'path') {
+						echo '{ width: function() { return $("#contents").width() / 10; }, readOnly: true, renderer: "html" }, ';
+						continue;
+					}
+					echo '{ width: function() { return $("#contents").width() / 10; }, readOnly: false }' . (($columnBasename === end($listColumnBasename)) ? '' : ', ');
+				}
+				echo "\n";
+			?>
+		],
+
+		listPairColumnAndProp: [
+			<?php echo('"' . implode('","', $listColumnBasename ) . '"' . "\n"); ?>
+		],
+
+		listColHeaders: [
+			<?php echo('"' . implode('","', $listColumnLabel ) . '"' . "\n"); ?>
+		]
+	});
+})(jQuery);
+
+</script>
+
+
+<h2 id="title-article-spreadsheet" class="title-article"><span class="caption-title">編集中:</span><br><a href="<?php echo SITE_URL; ?>" target="_blank"><?php echo SITE_URL; ?></a></h2>
+
+<!-- ============================================= ディレクトリナビ -->
+<div id="section-list-tree-file" class="section-list-tree">
+<div class="section-knob-innerwindow"><span class="knob-innerwindow"></span></div>
+<ul id="list-tree-file" class="list-tree">
+<li class="type-dir type-top-dir current-select"><a class="cont-elem-list" href ="<?php echo(SITE_URL); ?>" target="_blank">Top Directory</a>
+<?php include('home/app/control-list-dir.php'); ?>
+
+</li>
+</ul>
+</div>
+<!-- ============================================= /ディレクトリナビ -->
+
+<!-- ============================================= スプレッドシート -->
+<div id="section-table-list-file" class="section-table-list">
+</div>
+<!-- ============================================= /スプレッドシート -->
+
+<!-- /contents-container --></div>
+<!-- /bg-layer02 --></div>
+<!-- /bg-layer01 --></div>
+<!-- /contents --></div>
+<!-- ======================================================================== /contents -->
+
+<!-- ======================================================================== footer -->
+<?php include(APP_ROOT . '/common/include/footer-common.html'); ?>
+<!-- ======================================================================== /footer -->
+
+<!-- /wrapper --></div>
+<!-- /bg-wrapper-02 --></div>
+<!-- /bg-wrapper-01 --></div>
+<!-- /wrapper-outer --></div>
+<!-- /page-outer --></div>
+</body>
+</html>

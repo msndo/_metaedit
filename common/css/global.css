@@ -1,0 +1,124 @@
+@charset "utf-8";
+
+/* ------------------------- TOC
+setup
+common layout
+ ------------------------- */
+
+/* ============================== setup */
+body { color: #333; background-color: #fff; font-size: 8px; font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Helvetica, Arial, sans-serif; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+a,
+a:link,
+a:visited { color: #356; text-decoration: none; }
+a:hover, a:active { color: #f00; }
+a img, a:link img, a:visited img, a:hover img, a:active img { border: none; text-decoration: none; }
+
+/* ============================== common layout */
+body { line-height: 1.5; }
+#page-outer { background: #fff; }
+
+/* ========================================================================== Wrapper */
+#wrapper-outer {  }
+#bg-wrapper-layer-01 { background: url(../img/bg-edit.gif) top 10px right 10px no-repeat fixed; background-size: 190px auto;  }
+#bg-wrapper-layer-02 {  }
+#wrapper {  }
+
+
+/* ========================================================================== Header */
+#header-outer { margin: auto;  margin-bottom: -55px; background: #ff0; border-bottom: 1px solid #333; }
+#bg-header { margin: auto; width: 910px; background:#ff0; }
+#header-common { padding: 15px 0; height: 100px; }
+#logo-main { color: #fff; padding: 0 40px; font-size: 650%; font-weight: bold; }
+#title-page { width: 60%; padding: 5px 10px 0; font-size: 600%; font-weight: bold; }
+
+
+#wrapper-outer,
+#header-outer,
+#contents-outer,
+#bg-contents-layer-01,
+#contents,
+#footer-outer { position: relative; }
+
+#header-outer,
+#bg-header,
+#header { background: none; }
+
+#header-outer {  }
+#contents-outer {  }
+#bg-contents-layer-01 {  }
+#footer-outer {  }
+
+
+/* ========================================================================== Contents */
+#contents-outer { position: relative; zoom: 1; }
+#bg-contents-layer-01 { position: relative; margin: 0 auto 0; width: 910px; padding-top: 5px; padding-bottom: 3px; background:  #ddd;  }
+#bg-contents-layer-02 { margin: 0 auto 0; width: 900px; zoom: 1; }
+#contents { position: relative; padding: 30px 15px 30px; zoom: 1; background-color: rgba(255, 255, 255 ,0.5)}
+#contents .title-article { font-size: 167%; }
+
+/* ========================================================================== Main Contents */
+#main-contents-outer { float: left; width: 880px; background: #fff; }
+#bg-main-contents {  }
+#main-contents { position: relative; min-height: 900px; height: auto !important; height: 900px;  }
+
+/* ========================================================================== Sub Contents */
+#sub-contents-outer { float: right; width: 275px; background: #fff; }
+#bg-sub-contents {  }
+#sub-contents { min-height: 900px; height: auto !important; height: 900px; }
+
+/* ========================================================================== Parts Individual */
+#contents .section-article { margin: 20px 15px; }
+#contents .section-article .title-article { font-weight: bold; font-size: 134%; color: #aaa; }
+
+#contents .section-article .lead { margin-top: 12px; font-size: 116%; }
+#contents .section-article .desc { margin-top: 17px; }
+
+/* ========================================================================== Full-screen Spreadsheet */
+#contents {  }
+#contents #section-table-list-file { margin-top: 20px; }
+#contents .section-table-list table { border-collapse: collapse; width: 100%;  }
+#contents .section-table-list thead { border: solid #ccc; border-width: 1px; }
+#contents .section-table-list thead th { white-space: normal; height: 3em; padding: 0; background: #efefef; font-size: 220%; color: #333; font-weight: bold; text-align: center; vertical-align: middle; }
+#contents .section-table-list tbody td,
+#contents .section-table-list tbody td.htDimmed:first-child { background: rgba(255, 255, 255, 0.5); }
+#contents .section-table-list tbody td.htDimmed { background: rgba(239, 239, 239, 0.5); }
+#contents .section-table-list th,
+#contents .section-table-list td { white-space: normal; word-break: break-all; font-size: 100%; padding: 10px 15px; }
+#contents .section-table-list td:first-child { font-weight: bold; }
+#contents .section-table-list .value-numeric { text-align: right; }
+
+#contents .section-table-list [status-update=send] th,
+#contents .section-table-list [status-update=send] td,
+#contents .section-table-list [status-update=send] td.htDimmed:first-child { background-color: #ffe; }
+/*/
+#contents .section-table-list [status-update=success] th,
+#contents .section-table-list [status-update=success] td,
+#contents .section-table-list [status-update=success] td.htDimmed:first-child { background-color: #efe; }
+/*/
+#contents .section-table-list [status-update=error] th,
+#contents .section-table-list [status-update=error] td,
+#contents .section-table-list [status-update=error] td.htDimmed:first-child  { background-color: #fee; }
+
+
+
+/* ========================================================================== Directory Tree */
+#contents #section-list-tree-file { position: fixed; min-width: 20%; max-width: 30%; max-height: 300px; overflow-y: scroll; bottom: -3px; right: -3px; padding: 10px 20px 30px; background: #fff; background-color: rgba(255, 255, 255, 0.8); border: 3px solid #aaa; z-index: 1300; font-size: 120%; }
+#contents #section-list-tree-file:hover { border-width: 5px; background-color: rgba(255, 255, 255, 1.0); }
+#contents #section-list-tree-file .section-knob-innerwindow { padding: 0 0 10px 0; }
+#contents #section-list-tree-file .section-knob-innerwindow .knob-innerwindow { display: block; width: auto; height: 25px; background: #eee; z-index: 400; cursor: move; }
+#contents #section-list-tree-file .list-tree { padding: 0 5px; }
+
+.section-list-tree li { padding: 3px 0 3px 0; }
+.section-list-tree li .cont-elem-list { white-space: normal; word-break: break-all; }
+.section-list-tree li > a { display: block; }
+
+.section-list-tree .type-dir { padding-left: 20px; overflow: visible; }
+.section-list-tree .type-file { padding-left: 20px; }
+.section-list-tree .type-file > a { margin-left: -20px; padding: 3px 0 3px 20px; background: url(../img/icon-flatfile.gif) 0 0.1em no-repeat; background-size: 12px auto; }
+.section-list-tree .type-dir > a { margin-left: -20px; padding: 3px 0 3px 20px; background: url(../img/icon-folder.gif) 0 0.4em no-repeat; background-size: 15px auto; font-weight: bold; }
+.section-list-tree .type-dir .type-file { font-weight: normal; }
+.section-list-tree .type-top-dir { font-size: 112%; }
+.section-list-tree .type-top-dir ul { padding: 2px 0 0; }
+.section-list-tree .current-select > .cont-elem-list { color: #f80; }
