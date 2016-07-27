@@ -81,7 +81,7 @@ class ConfCommon {
 		// セキュリティ対応
 		if(! empty($this -> listParamEnv[$keyBasePath])) {
 			$this -> listParamEnv[$keyBasePath] = (! preg_match('/\.\./', $this -> listParamEnv[$keyBasePath])) ? $this -> listParamEnv[$keyBasePath] : SITE_ROOT;
-			$this -> listParamEnv[$keyBasePath] = htmlspecialchars($this -> listParamEnv[$keyBasePath], ENT_QUOTES, 'UTF-8');
+			$this -> listParamEnv[$keyBasePath] = htmlspecialchars($this -> listParamEnv[$keyBasePath], ENT_QUOTES, $this -> listContConf['Apprication-Control']['defaultCharset']);
 		}
 	}
 
