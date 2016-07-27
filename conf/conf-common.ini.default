@@ -1,6 +1,5 @@
 ;========================================================= 表示項目
 [Item-Edit]
-[Item-Edit]
 htmlTitle[regexCondScrape] = '/(.*<title>)(.*?)(<\/title>.*)/si'
 htmlTitle[fieldIndexPickup] = '${2}'
 htmlTitle[columnLabel] = '&lt;title&gt;'
@@ -48,7 +47,7 @@ metaKeywords[columnLabel] = 'Meta Keywords'
 ;========================================================= ディレクトリ設定など
 [Environment]
 ;APP_ROOT - When Omitted, Default is getcwd();
-;APP_ROOT = ''
+;APP_ROT = '/usr/local/path/to/installed_directory'
 
 ;SITE_ROOT - When Omitted, Default is parent of _metaedit/
 ;SITE_ROOT = '/path/to/site'
