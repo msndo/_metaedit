@@ -1,7 +1,8 @@
 #HTML META Editor
 
 ##概要
-Webサイト上、_metaeditを設置したディレクトリ配下のHTMLの&lt;title&gt;, &lt;meta name="keywords"&gt;, &lt;meta name="description"&gt;を一覧表示し、
+HTMLのtitle, keywords, descriptionをWebスプレッドシート上で一括編集します。
+インストールしたディレクトリ配下のHTMLの&lt;title&gt;, &lt;meta name="keywords"&gt;, &lt;meta name="description"&gt;を一覧表示します。
 また、画面上で編集を行うことができます。
 
 ##インストール
