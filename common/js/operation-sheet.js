@@ -189,10 +189,6 @@
 	};
 
 	$.fn.displayChildDir = function(options) {
-		var settings = {
-		};
-		$.extend(options, settings);
-
 		var $elemCtrl = this;
 		var $elemContainer = $elemCtrl.parent();
 
