@@ -1,7 +1,9 @@
 #HTML META Editor
 
+![Screenshot](http://msndo.github.io/metaedit/metaedit.png "Screenshot")
+
 ##概要
-HTMLのtitle, keywords, descriptionをWebスプレッドシート上で一括編集します。
+HTMLのtitle, keywords, descriptionをWebスプレッドシート上で一括編集します。一括矩形コピペが可能。
 インストールしたディレクトリ配下のHTMLの&lt;title&gt;, &lt;meta name="keywords"&gt;, &lt;meta name="description"&gt;を一覧表示します。
 また、画面上で編集を行うことができます。
 
