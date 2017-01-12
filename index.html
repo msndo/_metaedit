@@ -96,10 +96,23 @@ var dataTableListFile =
 			<?php
 				foreach($listColumnBasename as $columnBasename) {
 					if($columnBasename === 'path') {
-						echo '{ width: function() { return $("#contents").width() / 10; }, readOnly: true, renderer: "html" }, ';
+						echo str_replace(
+							'__countColumn__',
+							(string)(count($listColumnBasename) ? count($listColumnBasename) : 0),
+							'{ width: function() { return $("#contents").width() / __countColumn__; }, readOnly: true, renderer: "html" }, '
+						);
 						continue;
 					}
-					echo '{ width: function() { return $("#contents").width() / 10; }, readOnly: false }' . (($columnBasename === end($listColumnBasename)) ? '' : ', ');
+
+					echo
+						str_replace(
+							'__countColumn__',
+							(string)(count($listColumnBasename) ? count($listColumnBasename) : 0),
+							'{ width: function() { return $("#contents").width() / __countColumn__; }, readOnly: false }'
+						) .
+						(($columnBasename === end($listColumnBasename)) ? '' : ', ')
+					;
+
 				}
 				echo "\n";
 			?>
