@@ -1,13 +1,13 @@
-#HTML META Editor
+# HTML META Editor
 
 ![Screenshot](http://msndo.github.io/metaedit/metaedit.png "Screenshot")
 
-##概要
+## 概要
 HTMLのtitle, keywords, descriptionをWebスプレッドシート上で一括編集します。一括矩形コピペが可能。
 インストールしたディレクトリ配下のHTMLの&lt;title&gt;, &lt;meta name="keywords"&gt;, &lt;meta name="description"&gt;を一覧表示します。
 また、画面上で編集を行うことができます。
 
-##インストール
+## インストール
 - このリポジトリをCLONEまたはダウンロード
 - _metaedit/ をDOCUMENT_ROOTに配置
 - _metaedit/index.html へブラウザアクセス
@@ -15,7 +15,7 @@ HTMLのtitle, keywords, descriptionをWebスプレッドシート上で一括編
 - 編集可能
 - 矩形コピー＆ペーストが可能
 
-##動作環境
+## 動作環境
 PHPが動作するApacheによるWebサイト配下
 
 ##対応ブラウザ
@@ -27,28 +27,26 @@ PHPが動作するApacheによるWebサイト配下
 - Edge
 - IE11
 
-##動かない場合
+## 動かない場合
 - PHP5.2以上が必要
 - _metaedit/htaccess を .htaccessとして保存してみてください
 
-##設定
+## 設定
 _metaedit/conf/conf-common.ini
 
 - Title, Keywords, Description以外、OGPなども編集対象にできます
 - 設定を変更する場合、上記ファイルはgitignoreしてください。
 - 閲覧専用モードにできます。上記ファイル最後の項目。
 
-##Powered by
+## Powered by
 - [jQuery](https://jquery.com/)
 - [handsontable](https://github.com/handsontable/handsontable)
 
-##ライセンス
+## ライセンス
 This software is released under the MIT License, see LICENSE.txt.
 
-##免責・注意事項
-このソフトウェアを使用したことによって生じたすべての障害・損害・不具
-合等に関しては、私と私の関係者および私の所属するいかなる団体・組織とも、
-一切の責任を負いません。各自の責任においてご使用ください。「ライセンス」について併せてお読みください
+## 免責・注意事項
+このソフトウェアを使用したことによって生じたすべての障害・損害・不具合等に関しては、私と私の関係者および私の所属するいかなる団体・組織とも、一切の責任を負いません。各自の責任においてご使用ください。「ライセンス」について併せてお読みください
 
 サーバ上のドキュメントをブラウザから編集可能とします。公開領域への配置は推奨しません。
 公開領域に配置する場合、認証・セキュリティを十分に施すものとしてください。
