@@ -10,7 +10,13 @@ $listFile = new ListFile;
 $confCommon = new ConfCommon;
 
 $paramEnv = $confCommon -> getParamEnv();
-$basePath = str_replace(SITE_URL, '', $paramEnv['basePath']);
+$basePath = realpath(str_replace(SITE_URL, '', $paramEnv['basePath']));
+
+// Avoid Directory Traversal
+if(!$basePath || !($listFile -> isPathUnderDocRoot($basePath, SITE_ROOT))) {
+	error_log($basePath . ': Out of DOCUMENT_ROOT. Operation Terminated');
+	return;
+}
 
 $listTreeFile = $listFile -> getFileListSingleLevel($basePath);
 $elemsHtmlListTree = '';

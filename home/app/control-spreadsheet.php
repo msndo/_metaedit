@@ -8,11 +8,19 @@ class DataForListFile {
 		$confCommon = new ConfCommon;
 		$paramEnv = $confCommon -> getParamEnv();
 		$defaultCharset = $confCommon -> defaultCharset;
-		$basePath = str_replace(SITE_URL, '', $paramEnv['basePath']);
+
+		$listFile = new ListFile;
+
+		$basePath = realpath(str_replace(SITE_URL, '', $paramEnv['basePath']));
+
+		// Avoid Directory Traversal
+		if(!$basePath || !($listFile -> isPathUnderDocRoot($basePath, SITE_ROOT))) {
+			error_log($basePath . ': Out of DOCUMENT_ROOT. Operation Terminated');
+			return;
+		}
 
 		$msgElemNotFound = $confCommon -> msgElemNotFound;
 
-		$listFile = new ListFile;
 		$listPathFile = $listFile -> getFileListSingleLevel($basePath);
 
 		$counterRecordFile = 0;

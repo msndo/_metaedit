@@ -45,5 +45,14 @@ class ListFile {
 
     	return $list;
 	}
+
+    // ディレクトリ正当性チェック
+    function isPathUnderDocRoot($path, $siteRoot) {
+        if(!preg_match('/^' . str_replace('/', '\/', $siteRoot) . '/', realpath($path) . '/')) {
+            return false;
+        }
+
+        return true;
+    }
 }
 ?>
